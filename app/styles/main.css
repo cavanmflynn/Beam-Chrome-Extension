@@ -1,0 +1,301 @@
+/* General */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Loader */
+
+#loading-container {
+  background: #ffffff;
+  text-align: center;
+  width: 350px;
+  height: 60px;
+  position: relative;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  background: #00c853;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+}
+
+@keyframes fadeOutInOutSwirl {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.circle img {
+  margin-top: 4px;
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 2.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-transition-timing-function: cubic-bezier(1, 1, 1, 1);
+  animation-name: fadeOutInOutSwirl;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transition-timing-function: cubic-bezier(1, 1, 1, 1);
+  width: 23px;
+  height: 23px;
+}
+
+/* Top Loader */
+
+.progress {
+  position: relative;
+  height: 4px;
+  display: block;
+  width: 100%;
+  background-color: #acece6;
+  border-radius: 2px;
+  margin: 0.5rem 0 1rem 0;
+  overflow: hidden;
+}
+
+.progress .determinate {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #26a69a;
+  transition: width .3s linear;
+}
+
+.file-loader-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+}
+
+.white {
+  background: #ffffff;
+}
+
+.green.accent-4 {
+  background-color: #00C853;
+}
+
+/* Login */
+
+#login-container {
+  display: none;
+  padding: 20px;
+  text-align: center;
+  background: #f0f0f0;
+}
+
+.heading {
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.limit-heading {
+  font-size: 14px;
+  font-weight: 100;
+  padding-top: 10px;
+  color: #aaa;
+}
+
+#google-button {
+  cursor: pointer;
+  height: 40px;
+  border-width: 0;
+  background: white;
+  color: #737373;
+  border-radius: 5px;
+  white-space: nowrap;
+  box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.05);
+  transition-property: background-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+  padding: 0;
+}
+
+#google-button:focus,
+#google-button:hover {
+  box-shadow: 1px 4px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+#google-button:active {
+  background-color: #e5e5e5;
+  box-shadow: none;
+  transition-duration: 10ms;
+}
+
+
+#google-button-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 8px 0 8px 8px;
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+}
+
+#google-button-text {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 24px;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Roboto', arial, sans-serif;
+}
+
+/* Authenticated */
+
+#authenticated-container {
+  display: none;
+  width: 350px; 
+  height: 500px;
+}
+
+#logout-button {
+  position: absolute;
+  top: 12px;
+  right: 7px;
+  z-index: 1000;
+}
+
+#beam-top-logo {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+}
+
+.divider {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 1em 0;
+  padding: 0; 
+}
+
+#firepad-container {
+  margin-top: 25px;
+  width: 100%;
+  height: 90%;
+}
+
+.powered-by-firepad {
+  display: none !important;
+}
+
+.file-upload {
+  position: absolute;
+  bottom: 7px;
+  left: 7px;
+  right: 7px;
+}
+
+.file-field {
+  position: relative;
+}
+
+.file-field .file-path-wrapper {
+  overflow: hidden;
+  padding-left: 10px;
+  margin-right: 15px;
+}
+
+.file-field input.file-path {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  line-height: 45px;
+  font-size: 24px;
+  color: #bbb;
+  height: 45px;
+}
+
+.file-field .btn {
+  float: left;
+  height: 3rem;
+  line-height: 3rem;
+}
+
+.file-field span {
+  cursor: pointer;
+}
+
+.file-field input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.input-field {
+  position: relative;
+  margin-top: 1rem;
+  border: none;
+}
+
+.btn {
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  outline: 0;
+  text-decoration: none;
+  color: #fff;
+  background-color: #00C853;
+  text-align: center;
+  letter-spacing: .5px;
+  transition: .2s ease-out;
+  cursor: pointer;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
