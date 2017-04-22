@@ -53,28 +53,35 @@ function initApp() {
 
             // Register the download link on receiving computers.
             firepad.registerEntity('link', {
-                render: function (info, entityHandler) {
-                    var inputElement = document.createElement('a');
-                    inputElement.innerHTML = info.innerHTML;
-                    inputElement.setAttribute('download', 'download');
-                    inputElement.setAttribute('target', '_blank');
-                    inputElement.setAttribute('class', 'btn green accent-4');
-                    inputElement.style.textTransform = 'capitalize';
-                    inputElement.href = info.href;
+              render: function (info, entityHandler) {
+                  var inputElement = document.createElement('a');
+                  inputElement.innerHTML = info.innerHTML;
+                  inputElement.setAttribute('download', 'download');
+                  inputElement.setAttribute('target', '_blank');
+                  inputElement.setAttribute('class', 'btn green accent-4');
+                  inputElement.style.textTransform = 'capitalize';
+                  inputElement.href = info.href;
 
-                    return inputElement;
+                  return inputElement;
                 }.bind(this),
                 fromElement: function fromElement(element) {
+
                     var info = {};
-                    info.innerHTML = element.innerHTML;
-                    info.href = element.href;
+
+                    if (element.innerHTML === "") {
+                      info.innerHTML = 'Download ' + filename;
+                      info.href = downloadURL;
+                    } else {
+                      info.innerHTML = element.innerHTML;
+                      info.href = element.href;
+                    }
 
                     return info;
                 },
                 update: function update(info, element) {
                     element.innerHTML = info.innerHTML;
-                    element.setAttribute('download', 'download');
                     element.setAttribute('target', '_blank');
+                    element.setAttribute('download', 'download');
                     element.setAttribute('class', 'btn green accent-4');
                     element.style.textTransform = 'capitalize';
                     element.href = info.href;
@@ -231,21 +238,28 @@ function uploadFile() {
 
     // Register the download link.
     firepad.registerEntity('link', {
-        render: function (info, entityHandler) {
-            var inputElement = document.createElement('a');
-            inputElement.innerHTML = 'Download ' + filename;
-            inputElement.setAttribute('download', 'download');
-            inputElement.setAttribute('target', '_blank');
-            inputElement.setAttribute('class', 'btn green accent-4');
-            inputElement.style.textTransform = 'capitalize';
-            inputElement.href = downloadURL;
+      render: function (info, entityHandler) {
+          var inputElement = document.createElement('a');
+          inputElement.innerHTML = info.innerHTML;
+          inputElement.setAttribute('download', 'download');
+          inputElement.setAttribute('target', '_blank');
+          inputElement.setAttribute('class', 'btn green accent-4');
+          inputElement.style.textTransform = 'capitalize';
+          inputElement.href = info.href;
 
-            return inputElement;
+          return inputElement;
         }.bind(this),
         fromElement: function fromElement(element) {
+
             var info = {};
-            info.innerHTML = 'Download ' + filename;
-            info.href = downloadURL;
+
+            if (element.innerHTML === "") {
+              info.innerHTML = 'Download ' + filename;
+              info.href = downloadURL;
+            } else {
+              info.innerHTML = element.innerHTML;
+              info.href = element.href;
+            }
 
             return info;
         },
